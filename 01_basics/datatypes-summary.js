@@ -12,7 +12,7 @@ let userEmail;
 const id1 = Symbol("123")
 const id2 = Symbol("123")
 
-console.log(id1 === id2)
+// console.log(id1 === id2)
 
 const pi = 314159265358979323846n
 
@@ -30,6 +30,31 @@ let myObj = {
 const myFunction = function() {
     console.log("Hello World")
 }
-myFunction()
+// myFunction()
 
-console.log(typeof myObj)
+// console.log(typeof myObj)
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++
+
+// Stack(Primitive) & Heap(Non-Primitive)
+
+let myYoutubeName = "Mudassir Ansari"
+
+let anotherName = myYoutubeName
+anotherName = "dangerboyz"
+
+// console.log(myYoutubeName)
+// console.log(anotherName)
+
+let userOne = {
+    email: "user@google.com",
+    upi: "user1@ybl"
+}
+
+let userTwo = userOne
+
+userTwo.email = "user@meta.com"
+
+// console.log(userOne.email)
+// console.log(userTwo.email)
+
