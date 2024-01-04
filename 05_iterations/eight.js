@@ -21,4 +21,4 @@ const shoppingCart = [
 
 const totalPrice = shoppingCart.reduce( (acc, product) => acc + product.price, 0)
 
-console.log(`Total Cart price: ${totalPrice}`)
+// console.log(`Total Cart price: ${totalPrice}`)
