@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: #FFFFFF">
+    <pre>
+    0	UNSENT	        Client has been created. open() not called yet.
+    1	OPENED	        open() has been called.
+    2	HEADERS_RECEIVEDsend() has been called, and headers and status are available.
+    3	LOADING	        Downloading; responseText holds partial data.
+    4	DONE	        The operation is complete.
+    </pre>
+    <button id="getPhoto">Get Photo</button>
+    <div class="card"></div>
+    
+</body>
+<script>
+    let imageUrl, followerCount;
+    const requestURL = 'https://api.github.com/users/mudassiransari10'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET', requestURL)
+    xhr.onreadystatechange = function() {
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            // console.log(typeof data);
+            imageURL = data.avatar_url
+            followerCount = data.followers
+            console.log(imageURL)
+            console.log(followerCount)
+        }
+    }
+    // console.log(xhr.readyState);
+    xhr.send()
+    
+    // const getPhoto = document.getElementById('getPhoto')
+    // getPhoto.addEventListener('click', function() {
+    //     console.log('CLICKED')
+        
+    //     const div = document.createElement('div')
+    //     div.className = "card"
+    //     div.setAttribute("title", "fetched details")
+    //     div.innerHTML = 
+    //     `
+    //     <img src="${imageURL}" alt="userPhoto"></img>
+    //     <h3>Follower Count: ${followerCount}</h3>
+    //     `
+    //     document.body.appendChild(div)
+    // })
+
+
+    // Have to solve this error
+    const getPhoto = document.getElementById('getPhoto')
+    const card = document.getElementsByClassName('card')
+    getPhoto.addEventListener('click', function() {
+        console.log('CLICKED')
+        card.innerHTML = 
+        `
+        <img src="${imageURL}" alt="userPhoto"></img>
+        <h3>Follower Count: ${followerCount}</h3>
+        `
+    })
+    
+    
+
+</script>
+</html>
