@@ -2,6 +2,12 @@
 
 // In old days people use to make use of Q or Bluebird for implementing promises
 
+
+// A fetch() promise only rejects when a network error is encountered
+// (which is usually when there's a permission issue or similar). A fetch()
+// promise does not reject on HTTP (404, etc.). Instead, a then()
+// handler must check the Response.ok and/or Response.status properties
+
 const promiseOne = new Promise(function(resolve, reject) {
     // Do async tasks
     // DBcalls, cryptography, network
